@@ -1,7 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("infoModal");
   const button = document.getElementById("infoBtn");
+  const closeBtn = document.querySelector(".close");
 
+  // Abrir modal
   button.addEventListener("click", () => {
-    alert("El Estadio Metropolitano Roberto Meléndez es el estadio más grande de Colombia, ubicado en Barranquilla. ¡Es la casa de la Selección Colombia!");
+    modal.style.display = "flex";
+  });
+
+  // Cerrar modal al hacer clic en la X
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Cerrar modal al hacer clic fuera del contenido
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
   });
 });
